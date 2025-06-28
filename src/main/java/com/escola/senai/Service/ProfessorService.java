@@ -1,32 +1,33 @@
 package com.escola.senai.Service;
 
-import com.escola.senai.Interface.AlunoRepository;
-import com.escola.senai.Model.Aluno;
+import com.escola.senai.Interface.ProfessorRepository;
+import com.escola.senai.Model.Professor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class AlunoService {
-    private final AlunoRepository repository;
+public class ProfessorService {
+    private final ProfessorRepository repository;
 
-    public AlunoService(AlunoRepository repository) {
+    public ProfessorService(ProfessorRepository repository) {
         this.repository = repository;
     }
 
-    public List<Aluno> listaTodos(){
+
+    public List<Professor> listaTodos() {
         return repository.findAll();
     }
 
-     public Aluno salvar(Aluno alunos){
-        return repository.save(alunos);
+    public Professor salvar(Professor professores) {
+        return repository.save(professores);
     }
 
-    public void excluirAluno(Long id){
+    public void excluirProfessor(Long id) {
         repository.deleteById(id);
     }
 
-    public Aluno buscarPorId(Long id){
+    public Professor buscarPorId(Long id) {
         return repository.findById(id).orElse(null);
     }
 
